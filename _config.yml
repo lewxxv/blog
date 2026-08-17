@@ -3,17 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
+title: Lewxx Blog
+subtitle: '生活的理想 | 理想的生活'
 description: ''
 keywords:
-author: John Doe
+author: Lewxx
+avatar: /images/avatar.webp
 language: en
-timezone: ''
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://blog.lewxx.com
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
