@@ -18,6 +18,7 @@ preconnect:
 # 如果访问地址不在备用站主机列表，则警告信息为非法克隆
 canonical:
   originalHost: # 主站点域名主机，例如 xaoxuu.com
+    - blog.lewxx.com
   officialHosts: # 官方主机列表，每行一个，例如 xaoxuu.vercel.app
     - localhost
 
@@ -44,26 +45,26 @@ menubar:
     # icon: 支持 svg/img 标签，可以定义在 icons.yml 文件中，也支持外部图片的 URL
     # title: 标题
     # url: 点击跳转到哪，支持相对路径和绝对路径
-    # - id: post
-    #   theme: '#1BCDFC'
-    #   icon: default:documents
-    #   title: 博客
-    #   url: /
-    # - id: wiki
-    #   theme: '#3DC550'
-    #   icon: example:notebook
-    #   title: 文档
-    #   url: /wiki/
-    # - id: explore
-    #   theme: '#FA6400'
-    #   icon: example:planet
-    #   title: 探索
-    #   url: /explore/
-    # - id: social
-    #   theme: '#F44336'
-    #   icon: example:chat
-    #   title: 社交
-    #   url: /friends/
+    - id: post
+      theme: '#1BCDFC'
+      icon: default:documents
+      title: Post
+      url: /
+    - id: note
+      theme: '#3DC550'
+      icon: example:notebook
+      title: Note
+      url: /note/
+    - id: more
+      theme: '#FA6400'
+      icon: example:planet
+      title: More
+      url: /more/
+    - id: about
+      theme: '#F44336'
+      icon: example:chat
+      title: About
+      url: /about/
 
 
 ######## Main ########
@@ -248,7 +249,7 @@ search:
 
 ######## Comments ########
 comments:
-  service: # beaudar, utterances, giscus, twikoo, waline, artalk
+  service: waline # beaudar, utterances, giscus, twikoo, waline, artalk
   comment_title: 快来参与讨论吧~
   custom_css: # artalk,twikoo,... 可以为没有全局启用的评论加载自定义样式
   # beaudar
@@ -303,7 +304,7 @@ comments:
     css: https://gcore.jsdelivr.net/npm/@waline/client@3.15.2/dist/waline.css
     meta_css: https://gcore.jsdelivr.net/npm/@waline/client@3.15.2/dist/waline-meta.css
     # Waline server address url, you should set this to your own link
-    serverURL: https://waline.vercel.app
+    serverURL: https://waline.lewxx.com
     # If false, comment count will only be displayed in post page, not in home page
     commentCount: true
     # Pageviews count, Note: You should not enable both `waline.pageview` and `leancloud_visitors`.
@@ -358,46 +359,37 @@ comments:
 ######## Footer ########
 footer:
   social:
-    # github:
-    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
-    #   url: /
+    github:
+      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
+      url: https://github.com/lewxxv/
     # music:
     #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3845874.svg"/>'
     #   url: /
     # unsplash:
     #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3616429.svg"/>'
     #   url: /
-    # comments:
-    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/>'
-    #   url: /about/#comments
+    comments:
+      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/>'
+      url: /about/#comments
   sitemap:
-    # - title: 博客
-    #   items:
-    #     - '[近期发布](/)'
-    #     - '[分类](/blog/categories/)'
-    #     - '[标签](/blog/tags/)'
-    #     - '[归档](/blog/archives/)'
-    # - title: 项目
-    #   items:
-    #     - '[xxx](/)'
-    #     - '[xxx](/)'
-    #     - '[xxx](/)'
-    #     - '[xxx](/)'
-    # - title: 社交
-    #   items:
-    #     - '[xxx](/)'
-    #     - '[xxx](/)'
-    #     - '[xxx](/)'
-    #     - '[xxx](/)'
-    # - title: 关于
-    #   items:
-    #     - '[xxx](/)'
-    #     - '[xxx](/)'
-    #     - '[xxx](/)'
-    #     - '[xxx](/)'
+    - title: Blog
+      items:
+        - '[Index](/)'
+        - '[Categories](/blog/categories/)'
+        - '[Tags](/blog/tags/)'
+        - '[Archives](/blog/archives/)'
+    - title: Note
+      items:
+        - '[xxx](/)'
+    - title: More
+      items:
+        - '[xxx](/)'
+    - title: About
+      items:
+        - '[xxx](/)'
   content: | # 支持 Markdown 格式
-    本站由 [{author.name}](/) 使用 [{theme.name} {theme.version}]({theme.tree}) 主题创建。
-    本博客所有文章除特别声明外，均采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。
+    Powered by [Hexo](https://hexo.io/) & [{theme.name}]({theme.tree}).
+    Except where otherwise noted, content on this site is licensed under a [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) International license.
   # 主题用户越多，开发者维护和更新的积极性就越高，如果您喜欢本主题，请在适当的位置显示主题信息和仓库链接以表支持。
 
 
@@ -668,7 +660,7 @@ plugins:
     enable: true
     default_text: 'Copy'
     success_text: 'Copied'
-    toast: 复制成功
+    toast: Copied
 
   # 文字自适应颜色：背景图/背景色上方的文字随背景亮度自适应
   # 页面存在 [data-text-adaptive] 元素时才按需加载（theme：背景图平均色 lighten/darken；contrast：黑白对比）
@@ -685,14 +677,14 @@ plugins:
 
 
 style:
-  prefers_theme: auto # auto / light / dark
+  prefers_theme: light # auto / light / dark
   font-size:
     root: 16px # 改这个会影响全局所有文字的字号
     body: 17px # 影响正文区域的字号，如果改成 px 则不受 root 影响
     code: 85% # 相较于其所在行的文本大小，建议用百分比
     codeblock: 0.8125rem # 13px
   font-family:
-    body: 'system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif'
+    body: '"Noto Serif", system-ui, sans-serif'
     code: 'Menlo, Monaco, Consolas, system-ui, monospace, sans-serif'
     codeblock: 'Menlo, Monaco, Consolas, system-ui, monospace, sans-serif'
   text-align: left
@@ -713,7 +705,7 @@ style:
     accent: 'hsl(14 100% 57%)' # 强调色
     link: 'hsl(207 90% 54%)' # 超链接颜色
   animated_avatar:
-    animate: auto # auto, always
+    animate: always # auto, always
   codeblock:
     scrollbar: 4px
     highlightjs_theme: https://gcore.jsdelivr.net/gh/highlightjs/cdn-release@11.9/build/styles/atom-one-dark.min.css
@@ -776,3 +768,8 @@ api_host:
 system:
   # hexo 支持输出的链接格式众多，维护成本高，为了减少出错，统一成推荐的格式。
   override_pretty_urls: true
+
+inject:
+  head:
+    - <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+  script:
